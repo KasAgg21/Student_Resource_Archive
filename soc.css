@@ -16,10 +16,19 @@
     background-size: cover;
     display: flex;
     background-repeat: no-repeat;
+    margin-left: 20px;
 }
 .left
 {
     display: flex;
-    justify-content: center;
+    justify-content: center ;
     
+}
+.ph {
+    background-image: url(phone-call.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+    margin-left: 20px;
 }
