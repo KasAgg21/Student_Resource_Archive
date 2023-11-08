@@ -1,0 +1,25 @@
+.soclist{
+    margin: auto;
+    padding: 20px 20px 20px 20px ;
+}
+.img-seg {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    border-radius: 10px;
+
+}
+.insta {
+    background-image: url(VsNE-OHk_8a.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    background-repeat: no-repeat;
+}
+.left
+{
+    display: flex;
+    justify-content: center;
+    
+}
