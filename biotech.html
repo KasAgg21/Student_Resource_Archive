@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web Page</title>
+    <style>
+        body {
+            background-color: #f5f5f5; /* Default background color (light mode) */
+            background-image: url("https://t3.ftcdn.net/jpg/05/00/34/58/360_F_500345899_4OqmtspFst6SRnNQvLj7h7TfKOrBwTer.jpg");
+            color: #000; /* Default text color (light mode) */
+            font-family: 'Verdana', sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            border: 10px solid #ff0000; /* Red border for the complete webpage */
+        }
+
+        #container {
+            background-color: #ddd; /* Light gray background for the container */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            margin: auto;
+        }
+
+        #header {
+            font-size: 24px;
+            margin: 20px;
+            transition: font-size 0.5s;
+        }
+
+        #header:hover {
+            font-size: 30px;
+        }
+
+        #buttons-container {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arrow-button {
+            background-color: #cc3014; /* Default button color (light mode) */
+            color: #fff; /* Default text color for buttons (light mode) */
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.5s, background-color 0.5s;
+        }
+
+        .arrow-button:hover {
+            background-color: #ff5722; /* Button color on hover (light mode) */
+        }
+
+        .arrow-button:hover .arrow {
+            transform: translateY(5px); /* Move down on hover (light mode) */
+            color: #333; /* Change arrow color on hover (light mode) */
+        }
+
+        .arrow {
+            margin-left: 5px;
+            transition: transform 0.5s, color 0.5s;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212; /* Dark mode background color */
+            color: #f5f5f5; /* Dark mode text color */
+            background-image: none;
+            border: 10px solid rgb(223, 214, 214);
+        }
+
+        body.dark-mode #container {
+            background-color: #333;
+             /* Dark mode container background color */
+        }
+
+        body.dark-mode #buttons-container .arrow-button {
+            background-color: #43609c; /* Dark mode button color */
+        }
+
+        /* Light mode switch button */
+        #switch-button {
+            background-color: #3498db; /* Attractive blue color */
+            color: #fff; /* Text color for the switch button */
+            padding: 10px 20px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px; /* Rounded corners */
+            transition: background-color 0.5s;
+        }
+
+        #switch-button:hover {
+            background-color: #2980b9; /* Button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Bio Technology Department </div>
+    <p>All subjects are listed below </p>
+    <div id="container">
+        
+
+        <div id="buttons-container">
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-1</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-2</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Chemistry</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Physics</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Biochemistry-1</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Engineering and Drawing-1</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introduction to Biotechnology</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 1</a>
+            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 2</a>
+            <a href="Pool_A.html" class="arrow-button"><span class="arrow">➔</span> Microbiology</a>
+            <a href="Pool_B.html" class="arrow-button"><span class="arrow">➔</span> Professional Communication</a>
+            <a href="CSE_Branch.html" class="arrow-button"><span class="arrow">➔</span> Development Biology</a>
+            <a href="CSBS_Branch.html" class="arrow-button"><span class="arrow">➔</span> Cell Biology &Genetics</a>
+        </div>
+    </div>
+
+    <!-- Light mode switch button -->
+    <button id="switch-button" onclick="toggleDarkMode()">Switch Light Mode</button>
+
+    <!-- Dark mode switch script -->
+    <script>
+        const body = document.body;
+
+        function toggleDarkMode() {
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+</html>
