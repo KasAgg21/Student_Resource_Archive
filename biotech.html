@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Web Page</title>
+    <title>Subject Selector</title>
     <style>
         body {
             background-color: #f5f5f5; /* Default background color (light mode) */
@@ -41,9 +42,9 @@
 
         #buttons-container {
             text-align: center;
-            margin-top: 20px;
             display: flex;
             flex-direction: column;
+            width: 95%;
         }
 
         .arrow-button {
@@ -54,6 +55,11 @@
             border: none;
             cursor: pointer;
             transition: transform 0.5s, background-color 0.5s;
+            text-decoration: none;
+            font-size: 25px;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         .arrow-button:hover {
@@ -79,65 +85,94 @@
         }
 
         body.dark-mode #container {
-            background-color: #333;
-             /* Dark mode container background color */
+            background-color: #333; /* Dark mode container background color */
         }
 
         body.dark-mode #buttons-container .arrow-button {
-            background-color: #43609c; /* Dark mode button color */
+            background-color: red; /* Dark mode button color */
+        }
+        #switch-container {
+            text-align: center;
+            margin: 20px;
         }
 
-        /* Light mode switch button */
+        #switch-text {
+            color: #3498db;
+            /* Attractive blue color */
+            margin-right: 10px;
+        }
+
+        #switch-image {
+            width: 20px;
+            /* Adjust the width as needed */
+            height: 20px;
+            /* Adjust the height as needed */
+            vertical-align: middle;
+        }
+
         #switch-button {
-            background-color: #3498db; /* Attractive blue color */
-            color: #fff; /* Text color for the switch button */
-            padding: 10px 20px;
-            margin: 20px;
+            display: inline-block;
+            border-radius: 20px;
+            background-color: whitesmoke;
             border: none;
             cursor: pointer;
-            border-radius: 10px; /* Rounded corners */
-            transition: background-color 0.5s;
         }
 
-        #switch-button:hover {
-            background-color: #2980b9; /* Button color on hover */
+        #switch-button:hover #switch-text {
+            color: #2980b9;
+            /* Text color on hover */
         }
     </style>
 </head>
+
 <body>
-    <div id="header">Bio Technology Department </div>
+    <div id="header">Computer Engineering </div>
     <p>All subjects are listed below </p>
     <div id="container">
-        
-
-        <div id="buttons-container">
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-1</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-2</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Chemistry</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Physics</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Biochemistry-1</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Engineering and Drawing-1</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introduction to Biotechnology</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 1</a>
-            <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 2</a>
-            <a href="Pool_A.html" class="arrow-button"><span class="arrow">➔</span> Microbiology</a>
-            <a href="Pool_B.html" class="arrow-button"><span class="arrow">➔</span> Professional Communication</a>
-            <a href="CSE_Branch.html" class="arrow-button"><span class="arrow">➔</span> Development Biology</a>
-            <a href="CSBS_Branch.html" class="arrow-button"><span class="arrow">➔</span> Cell Biology &Genetics</a>
-        </div>
+            <div id="buttons-container">
+                <a href="m1.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-1</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Introductory Maths-2</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Chemistry</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Applied Physics</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Biochemistry-1</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Engineering and Drawing-1</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 1</a>
+                <a href="biotech.html" class="arrow-button"><span class="arrow">➔</span> Computer Science 2</a>
+                <a href="Pool_B.html" class="arrow-button"><span class="arrow">➔</span> Professional Communication</a>
+            </div>
     </div>
 
     <!-- Light mode switch button -->
-    <button id="switch-button" onclick="toggleDarkMode()">Switch Light Mode</button>
-
+    <div id="switch-container">
+        <button id="switch-button" onclick="toggleDarkMode()">
+            <img id="switch-image" src="dark-mode.png" alt="Dark Mode Icon">
+        </button>
+    </div>
     <!-- Dark mode switch script -->
     <script>
         const body = document.body;
 
+        // Check for dark mode preference in local storage
+        const darkMode = localStorage.getItem('darkMode');
+        
+        // Apply dark mode if the preference is set
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
         function toggleDarkMode() {
             body.classList.toggle('dark-mode');
+
+            // Update dark mode preference in local storage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
         }
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 </html>
