@@ -203,25 +203,38 @@
     }
 
     function calculateGPA() {
-      var totalSubjects = 0;
-      var totalPoints = 0;
+  var totalSubjects = 0;
+  var totalPoints = 0;
 
-      var rows = document.querySelectorAll(".tab tbody tr");
+  var rows = document.querySelectorAll(".tab tbody tr");
 
-      rows.forEach(function (row) {
-        var maxGrade = parseFloat(row.querySelector("#mgrade").value);
-        var obtainedGrade = parseFloat(row.querySelector("#ograde").value);
+  rows.forEach(function (row) {
+    var maxGradeInput = row.querySelector("#mgrade");
+    var obtainedGradeInput = row.querySelector("#ograde");
 
-        if (!isNaN(maxGrade) && !isNaN(obtainedGrade)) {
-          totalSubjects++;
-          totalPoints += (obtainedGrade / maxGrade) * 10;
-        }
-      });
+    // Check if the elements are found
+    if (maxGradeInput && obtainedGradeInput) {
+      var maxGrade = parseFloat(maxGradeInput.value);
+      var obtainedGrade = parseFloat(obtainedGradeInput.value);
 
-      var gpa = totalSubjects > 0 ? (totalPoints / totalSubjects).toFixed(2) : 0;
+      console.log("Max Grade:", maxGrade);
+      console.log("Obtained Grade:", obtainedGrade);
 
-      document.getElementById("gpaOutput").value = gpa;
+      if (!isNaN(maxGrade) && !isNaN(obtainedGrade)) {
+        totalSubjects++;
+        totalPoints += (obtainedGrade / maxGrade) * 10;
+      }
     }
+  });
+
+  var gpa = totalSubjects > 0 ? (totalPoints / totalSubjects).toFixed(2) : 0;
+
+  console.log("Total Subjects:", totalSubjects);
+  console.log("Total Points:", totalPoints);
+  console.log("GPA:", gpa);
+
+  document.getElementById("gpaOutput").value = gpa;
+}
   </script>
 </body>
 
